@@ -1,0 +1,25 @@
+FROM ubuntu:latest
+
+# Update package lists and install necessary dependencies
+#build essential will install gcc compiler
+RUN apt-get update && \
+    apt-get install -y curl build-essential
+
+# Install Rust and rustup
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+# Add cargo to PATH
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+# Add the target x86_64-unknown-linux-gnu
+# RUN rustup target add x86_64-unknown-linux-gnu
+
+# Install open-ssl (reqwest needs this)
+
+RUN apt install libssl-dev -y
+
+# Set working directory
+WORKDIR /app
+
+# Mount local directory as a volume
+VOLUME ["/app"]
