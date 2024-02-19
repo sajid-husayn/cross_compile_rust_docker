@@ -1,20 +1,19 @@
-Cross Compile Rust Docker
+# Cross Compile Rust Docker
 
-1. Environment Variable
+## 1. Environment Variable
+Set the `LOCAL_DIR` environment variable to the full path of the Rust project folder.
 
-Set the LOCAL_DIR environment variable to the full path of the Rust project folder.
-2. Running the Script
+## 2. Running the Script
+Execute the `start.sh` script.
 
-Execute the start.sh script.
-3. Inside the Container
-
-Install pkg-config by running:
-arduino
-Copy code
+## 3. Inside the Container
+Install `pkg-config` by running:
+```bash
 apt install pkg-config
-4. Building the Project
+```
 
+## 4. Building the Project
 Run the following command to build the Rust project in release mode:
-arduino
-Copy code
+```bash
 cargo build --release
+```
